@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Find Your Seat - Alydia & Jonathan</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
     body {
       font-family: Garamond, serif;
       background-color: #fdfaf5;
@@ -15,13 +17,27 @@
       align-items: center;
       justify-content: center;
       padding: 40px;
+      text-align: center;
+      background-image: url('https://i.imgur.com/IWZJO3J.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 300px auto;
     }
+
     h1 {
-      font-family: 'Brittany', cursive;
+      font-family: Garamond, serif;
+      font-size: 1.5rem;
+      margin-top: 180px;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
       color: #3c5d47;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
+
     input[type="text"] {
       padding: 12px;
       font-size: 1rem;
@@ -31,42 +47,44 @@
       border: 1px solid #ccc;
       border-radius: 8px;
     }
+
     .result {
       font-size: 1.2rem;
       background-color: #e3ede6;
       padding: 16px;
       border-radius: 10px;
       max-width: 400px;
-      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Find Your Seat</h1>
+  <h1>Welcome to Alydia and Jonathan's Wedding</h1>
+  <h2>Find Your Seat</h2>
   <input type="text" id="nameInput" placeholder="Enter your name" />
   <div class="result" id="result">Please enter your name above.</div>
 
   <script>
-    const guestList = [
-      "Guntur Blom",
-      "Carolyn Paul",
-      "Sonia Foo",
-      "Andrew Foo",
-      "Melissa Leonard",
-      "Keon Francis"
-    ];
+    const guestList = {
+      "Carolyn Paul": 1,
+      "Sonia Foo": 7,
+      "Andrew Foo": 7,
+      "Melissa Leonard": 7,
+      "Keon Francis": 7,
+      "Guntur Blom": 1
+    };
 
     const input = document.getElementById('nameInput');
     const result = document.getElementById('result');
 
     input.addEventListener('input', () => {
       const query = input.value.toLowerCase();
-      const match = guestList.find(name => name.toLowerCase().includes(query));
+      const matchKey = Object.keys(guestList).find(name => name.toLowerCase().includes(query));
 
       if (query.length === 0) {
         result.textContent = "Please enter your name above.";
-      } else if (match) {
-        result.textContent = `Hi ${match}, your table assignment will be shared soon!`;
+      } else if (matchKey) {
+        const tableNumber = guestList[matchKey];
+        result.textContent = `Hi ${matchKey}, you're seated at Table ${tableNumber}.`;
       } else {
         result.textContent = "Name not found. Please check your spelling.";
       }
