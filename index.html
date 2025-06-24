@@ -64,6 +64,7 @@
 
   <script>
     const guestList = {
+  "Guntur Blom": 1,
   "Carolyn Paul": 1,
   "Sonia Foo": 7,
   "Andrew Foo": 7,
@@ -179,7 +180,7 @@
     const result = document.getElementById('result');
 
     input.addEventListener('input', () => {
-      const query = input.value.toLowerCase();
+      const query = input.value.trim().toLowerCase();
       const matchKey = Object.keys(guestList).find(name =>
         name.toLowerCase().includes(query)
       );
