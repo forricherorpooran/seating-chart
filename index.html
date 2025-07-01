@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +30,12 @@
       margin-top: 1rem;
       font-size: 1rem;
     }
+    #resultMessage {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-style: italic;
+      color: #5b7553;
+    }
     table {
       margin: 2rem auto;
       width: 80%;
@@ -46,41 +53,42 @@
   </style>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eucalyptus_globulus_3.jpg/220px-Eucalyptus_globulus_3.jpg" alt="Eucalyptus accent">
+  <img src="https://www.transparenttextures.com/patterns/green-dust-and-scratches.png" alt="Eucalyptus accent">
   <h1>Welcome to Alydia and Jonathan's Wedding</h1>
   <h2>Find your seat</h2>
   <input type="text" id="searchInput" placeholder="Enter your name...">
-
+  <div id="resultMessage"></div>
   <table id="seatingTable">
     <thead>
       <tr><th>Name</th><th>Table Number</th></tr>
     </thead>
-    <tbody>
-    </tbody>
+    <tbody></tbody>
   </table>
 
   <script>
-    const seatingChart = [{'Name': 'Guntur Blom', 'Table Number': 1}, {'Name': 'Carolyn Paul', 'Table Number': 1}, {'Name': 'Sonia Foo', 'Table Number': 7}, {'Name': 'Andrew Foo', 'Table Number': 7}, {'Name': 'Melissa Leonard', 'Table Number': 7}, {'Name': 'Keon Francis', 'Table Number': 7}, {'Name': 'Lyndel Johnson', 'Table Number': 7}, {'Name': 'Romona Leonard', 'Table Number': 7}, {'Name': 'Dr. Shivani Prashad- Mann', 'Table Number': 8}, {'Name': 'Xavier Mann', 'Table Number': 8}, {'Name': 'Marissa Adams', 'Table Number': 3}, {'Name': 'Carl Adams', 'Table Number': 3}, {'Name': 'Cameron Adams', 'Table Number': 3}, {'Name': 'Carter Adams', 'Table Number': 3}, {'Name': 'Gabriella Arjun', 'Table Number': 9}, {'Name': 'Alejandro Chowargir', 'Table Number': 9}, {'Name': 'Antonio Phillips', 'Table Number': 9}, {'Name': 'Sherry Ramroop', 'Table Number': 4}, {'Name': 'Anil Ramroop', 'Table Number': 4}, {'Name': 'Ariana Ramroop', 'Table Number': 4}, {'Name': 'Ava Barakat', 'Table Number': 4}, {'Name': 'Sunita Neal', 'Table Number': 2}, {'Name': 'William Neal', 'Table Number': 2}, {'Name': 'Radica Pooran', 'Table Number': 2}, {'Name': 'Vibert Pooran', 'Table Number': 2}, {'Name': 'Arianne Chand', 'Table Number': 11}, {'Name': 'Michael Remon', 'Table Number': 11}, {'Name': 'Madison Jung', 'Table Number': 1}, {'Name': 'Omar Abdelbari', 'Table Number': 1}, {'Name': 'Mikhail Persaud', 'Table Number': 6}, {'Name': 'Shemar Lammy', 'Table Number': 6}, {'Name': 'Alvin Baboolall', 'Table Number': 12}, {'Name': 'Crystal Farinha', 'Table Number': 12}, {'Name': 'Roy Paul', 'Table Number': 1}, {'Name': 'Jeanna Paul', 'Table Number': 1}, {'Name': 'Jaden Pooran', 'Table Number': 10}, {'Name': 'Haydar Neal', 'Table Number': 6}, {'Name': 'Tandi Rampersaud', 'Table Number': 6}, {'Name': 'Ciara Pooran', 'Table Number': 6}, {'Name': 'Serena Neal', 'Table Number': 6}, {'Name': 'Devendra Singh', 'Table Number': 12}, {'Name': 'Andrew Peroune', 'Table Number': 12}, {'Name': 'Brandon Asif', 'Table Number': 4}, {'Name': 'Mariah Pestano', 'Table Number': 4}, {'Name': 'Chloe Joris', 'Table Number': 4}, {'Name': 'Stephon Gabriel', 'Table Number': 7}, {'Name': 'Travon Low A Chee', 'Table Number': 6}, {'Name': 'Shane Shewjattan', 'Table Number': 6}, {'Name': 'Janay Nedd', 'Table Number': 6}, {'Name': 'Yosser Blom', 'Table Number': 1}, {'Name': 'Marianne Brenet', 'Table Number': 1}, {'Name': 'Deirdre  Blom', 'Table Number': 1}, {'Name': 'Dr. Wladimir Playfair', 'Table Number': 1}, {'Name': 'Alex Power', 'Table Number': 11}, {'Name': 'Vijaya Panday', 'Table Number': 11}, {'Name': 'Vallenie Thornhill', 'Table Number': 9}, {'Name': 'Darren Ramroop', 'Table Number': 9}, {'Name': 'Stephan Ramroop', 'Table Number': 9}, {'Name': 'Monieram Pooran', 'Table Number': 2}, {'Name': 'Janet Pooran', 'Table Number': 2}, {'Name': 'Bunashire Pooran', 'Table Number': 2}, {'Name': 'Trevor Pooran', 'Table Number': 2}, {'Name': 'Noel Shewjattan', 'Table Number': 12}, {'Name': 'Dr. Mariah Low', 'Table Number': 11}, {'Name': 'Adrian Fisher', 'Table Number': 11}, {'Name': 'Calvin Ming', 'Table Number': 12}, {'Name': 'Christopher Fernandez', 'Table Number': 12}, {'Name': 'Ariesa Du Quesnay', 'Table Number': 12}, {'Name': 'Mark Mathura', 'Table Number': 12}, {'Name': 'Amrita Darsan', 'Table Number': 12}, {'Name': 'Nerissa Deabreu', 'Table Number': 10}, {'Name': 'Naomi Talley', 'Table Number': 10}, {'Name': 'Nahla Talley', 'Table Number': 10}, {'Name': 'John Housty ', 'Table Number': 8}, {'Name': 'Maverick Housty', 'Table Number': 8}, {'Name': 'Candace Nelson', 'Table Number': 8}, {'Name': 'Nadine Paul', 'Table Number': 5}, {'Name': 'Mariam Khan', 'Table Number': 5}, {'Name': 'Betty Ally ', 'Table Number': 5}, {'Name': 'Swabarene Matan', 'Table Number': 5}, {'Name': 'Ethan Matan', 'Table Number': 5}, {'Name': 'Juliana Matan', 'Table Number': 5}, {'Name': 'Saudi Ally', 'Table Number': 5}, {'Name': 'Azad Ally', 'Table Number': 5}, {'Name': 'Abu Hatim', 'Table Number': 8}, {'Name': 'Monica Hatim', 'Table Number': 8}, {'Name': 'Stacey Jones', 'Table Number': 10}, {'Name': 'Leslie Brown', 'Table Number': 10}, {'Name': 'Jurana DeOliviera', 'Table Number': 9}, {'Name': 'Dr. Jodi Carpen', 'Table Number': 3}, {'Name': 'Dr.Mahendra Carpen', 'Table Number': 3}, {'Name': 'Olivia Carpen', 'Table Number': 3}, {'Name': 'Alexis Carpen', 'Table Number': 3}, {'Name': 'Annica Pooran', 'Table Number': 2}, {'Name': 'Hassan Greenidge', 'Table Number': 2}, {'Name': 'Kurt Dasilva', 'Table Number': 11}, {'Name': 'Liam Hatim', 'Table Number': 8}, {'Name': 'Daniel King', 'Table Number': 10}, {'Name': 'Alexia Fraser', 'Table Number': 6}, {'Name': 'Angelina Barakat', 'Table Number': 4}, {'Name': 'Shameer Barakat', 'Table Number': 4}, {'Name': 'Leah Barakat', 'Table Number': 4}, {'Name': 'Mila Barakat', 'Table Number': 4}, {'Name': 'Kyan Jones', 'Table Number': 10}, {'Name': 'Taylor Jones', 'Table Number': 10}, {'Name': 'Jassy Mookram', 'Table Number': 3}, {'Name': 'Tina Swamy', 'Table Number': 9}, {'Name': 'Nya Bennett', 'Table Number': 9}, {'Name': 'Llyod Robinson', 'Table Number': 8}, {'Name': 'Paula Nelson', 'Table Number': 8}, {'Name': 'Diann Richards', 'Table Number': 8}];
+    const seatingChart = [{"Name": "Guntur Blom", "Table Number": 1}, {"Name": "Carolyn Paul", "Table Number": 1}, {"Name": "Sonia Foo", "Table Number": 7}, {"Name": "Andrew Foo", "Table Number": 7}, {"Name": "Melissa Leonard", "Table Number": 7}, {"Name": "Keon Francis", "Table Number": 7}, {"Name": "Lyndel Johnson", "Table Number": 7}, {"Name": "Romona Leonard", "Table Number": 7}, {"Name": "Dr. Shivani Prashad- Mann", "Table Number": 8}, {"Name": "Xavier Mann", "Table Number": 8}, {"Name": "Marissa Adams", "Table Number": 3}, {"Name": "Carl Adams", "Table Number": 3}, {"Name": "Cameron Adams", "Table Number": 3}, {"Name": "Carter Adams", "Table Number": 3}, {"Name": "Gabriella Arjun", "Table Number": 9}, {"Name": "Alejandro Chowargir", "Table Number": 9}, {"Name": "Antonio Phillips", "Table Number": 9}, {"Name": "Sherry Ramroop", "Table Number": 4}, {"Name": "Anil Ramroop", "Table Number": 4}, {"Name": "Ariana Ramroop", "Table Number": 4}, {"Name": "Ava Barakat", "Table Number": 4}, {"Name": "Sunita Neal", "Table Number": 2}, {"Name": "William Neal", "Table Number": 2}, {"Name": "Radica Pooran", "Table Number": 2}, {"Name": "Vibert Pooran", "Table Number": 2}, {"Name": "Arianne Chand", "Table Number": 11}, {"Name": "Michael Remon", "Table Number": 11}, {"Name": "Madison Jung", "Table Number": 1}, {"Name": "Omar Abdelbari", "Table Number": 1}, {"Name": "Mikhail Persaud", "Table Number": 6}, {"Name": "Shemar Lammy", "Table Number": 6}, {"Name": "Alvin Baboolall", "Table Number": 12}, {"Name": "Crystal Farinha", "Table Number": 12}, {"Name": "Roy Paul", "Table Number": 1}, {"Name": "Jeanna Paul", "Table Number": 1}, {"Name": "Jaden Pooran", "Table Number": 10}, {"Name": "Haydar Neal", "Table Number": 6}, {"Name": "Tandi Rampersaud", "Table Number": 6}, {"Name": "Ciara Pooran", "Table Number": 6}, {"Name": "Serena Neal", "Table Number": 6}, {"Name": "Devendra Singh", "Table Number": 12}, {"Name": "Andrew Peroune", "Table Number": 12}, {"Name": "Brandon Asif", "Table Number": 4}, {"Name": "Mariah Pestano", "Table Number": 4}, {"Name": "Chloe Joris", "Table Number": 4}, {"Name": "Stephon Gabriel", "Table Number": 7}, {"Name": "Travon Low A Chee", "Table Number": 6}, {"Name": "Shane Shewjattan", "Table Number": 6}, {"Name": "Janay Nedd", "Table Number": 6}, {"Name": "Yosser Blom", "Table Number": 1}, {"Name": "Marianne Brenet", "Table Number": 1}, {"Name": "Deirdre  Blom", "Table Number": 1}, {"Name": "Dr. Wladimir Playfair", "Table Number": 1}, {"Name": "Alex Power", "Table Number": 11}, {"Name": "Vijaya Panday", "Table Number": 11}, {"Name": "Vallenie Thornhill", "Table Number": 9}, {"Name": "Darren Ramroop", "Table Number": 9}, {"Name": "Stephan Ramroop", "Table Number": 9}, {"Name": "Monieram Pooran", "Table Number": 2}, {"Name": "Janet Pooran", "Table Number": 2}, {"Name": "Bunashire Pooran", "Table Number": 2}, {"Name": "Trevor Pooran", "Table Number": 2}, {"Name": "Noel Shewjattan", "Table Number": 12}, {"Name": "Dr. Mariah Low", "Table Number": 11}, {"Name": "Adrian Fisher", "Table Number": 11}, {"Name": "Calvin Ming", "Table Number": 12}, {"Name": "Christopher Fernandez", "Table Number": 12}, {"Name": "Ariesa Du Quesnay", "Table Number": 12}, {"Name": "Mark Mathura", "Table Number": 12}, {"Name": "Amrita Darsan", "Table Number": 12}, {"Name": "Nerissa Deabreu", "Table Number": 10}, {"Name": "Naomi Talley", "Table Number": 10}, {"Name": "Nahla Talley", "Table Number": 10}, {"Name": "John Housty ", "Table Number": 8}, {"Name": "Maverick Housty", "Table Number": 8}, {"Name": "Candace Nelson", "Table Number": 8}, {"Name": "Nadine Paul", "Table Number": 5}, {"Name": "Mariam Khan", "Table Number": 5}, {"Name": "Betty Ally ", "Table Number": 5}, {"Name": "Swabarene Matan", "Table Number": 5}, {"Name": "Ethan Matan", "Table Number": 5}, {"Name": "Juliana Matan", "Table Number": 5}, {"Name": "Saudi Ally", "Table Number": 5}, {"Name": "Azad Ally", "Table Number": 5}, {"Name": "Abu Hatim", "Table Number": 8}, {"Name": "Monica Hatim", "Table Number": 8}, {"Name": "Stacey Jones", "Table Number": 10}, {"Name": "Leslie Brown", "Table Number": 10}, {"Name": "Jurana DeOliviera", "Table Number": 9}, {"Name": "Dr. Jodi Carpen", "Table Number": 3}, {"Name": "Dr.Mahendra Carpen", "Table Number": 3}, {"Name": "Olivia Carpen", "Table Number": 3}, {"Name": "Alexis Carpen", "Table Number": 3}, {"Name": "Annica Pooran", "Table Number": 2}, {"Name": "Hassan Greenidge", "Table Number": 2}, {"Name": "Kurt Dasilva", "Table Number": 11}, {"Name": "Liam Hatim", "Table Number": 8}, {"Name": "Daniel King", "Table Number": 10}, {"Name": "Alexia Fraser", "Table Number": 6}, {"Name": "Angelina Barakat", "Table Number": 4}, {"Name": "Shameer Barakat", "Table Number": 4}, {"Name": "Leah Barakat", "Table Number": 4}, {"Name": "Mila Barakat", "Table Number": 4}, {"Name": "Kyan Jones", "Table Number": 10}, {"Name": "Taylor Jones", "Table Number": 10}, {"Name": "Jassy Mookram", "Table Number": 3}, {"Name": "Tina Swamy", "Table Number": 9}, {"Name": "Nya Bennett", "Table Number": 9}, {"Name": "Llyod Robinson", "Table Number": 8}, {"Name": "Paula Nelson", "Table Number": 8}, {"Name": "Diann Richards", "Table Number": 8}];
 
     const tableBody = document.querySelector("#seatingTable tbody");
     const input = document.getElementById("searchInput");
+    const resultMessage = document.getElementById("resultMessage");
 
-    function renderTable(data) {
-      tableBody.innerHTML = "";
-      data.forEach(entry => {
-        const row = `<tr><td>${entry.Name}</td><td>${entry["Table Number"]}</td></tr>`;
-        tableBody.innerHTML += row;
-      });
+    function renderMessage(data) {
+      if (data.length === 1) {
+        resultMessage.textContent = `Hey, ${data[0].Name}, you're seated at table ${data[0]["Table Number"]}.`;
+      } else if (data.length > 1) {
+        resultMessage.textContent = `We found multiple matches, please be more specific.`;
+      } else {
+        resultMessage.textContent = "";
+      }
     }
 
     input.addEventListener("input", function() {
       const filtered = seatingChart.filter(entry =>
         entry.Name.toLowerCase().includes(this.value.toLowerCase())
       );
-      renderTable(filtered);
+      tableBody.innerHTML = "";
+      renderMessage(filtered);
     });
-
-    renderTable(seatingChart);
   </script>
 </body>
 </html>
